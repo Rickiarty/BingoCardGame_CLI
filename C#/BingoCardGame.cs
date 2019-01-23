@@ -35,7 +35,7 @@ class Solution
                 for(int k = 0; k < WIDTH; k++) 
                 {
                     grids[i][j][k] = int.Parse(buffer[k]);
-                    tables[i][j][k] = ( j==2 && k==2 )? true : false ;
+                    tables[i][j][k] = j == HEIGHT / 2 && k == WIDTH / 2;
                 }
             }
         }
@@ -76,7 +76,7 @@ class Solution
         Console.Write("{0}\n{1}\n", num1, num2);
     }
     
-    static void fill_cell_by_checking_num(ref int[][] grid, int num, ref bool[][] table)
+    static bool fill_cell_by_checking_num(ref int[][] grid, int num, ref bool[][] table)
     {
         for(int y=0; y<HEIGHT; y++)
         {
@@ -85,10 +85,11 @@ class Solution
                 if(grid[y][x] == num)
                 {
                     table[y][x] = true;
-                    return;
+                    return true;
                 }
             }
         }
+        return false;
     }
     
     static int check_diagonals(bool[][] table)
