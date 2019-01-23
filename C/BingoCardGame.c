@@ -28,7 +28,7 @@ int main()
                 scanf("%d", &temp); getc(stdin);
                 //*(*(*(grids+i*WIDTH*HEIGHT)+j*WIDTH)+k) = (byte)temp;
                 grids[i][j][k] = (byte)temp;
-                tables[i][j][k] = ( j==2 && k==2 )? true : false ;
+                tables[i][j][k] = ( j == HEIGHT / 2 && k == WIDTH / 2 )? true : false ;
             }
         }
     }
