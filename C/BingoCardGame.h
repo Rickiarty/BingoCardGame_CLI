@@ -13,7 +13,7 @@
 #define true 1
 #define false 0
 
-void fill_cell_by_checking_num(byte**, int, bool**);
+bool fill_cell_by_checking_num(byte**, int, bool**);
 int check_diagonals(bool**);
 int check_rows(bool**);
 int check_columns(bool**);

@@ -68,7 +68,8 @@ int main()
     printf("%d\n%d\n", num1, num2);
     return 0;
 }
-void fill_cell_by_checking_num(byte** grid, int num, bool** table)
+
+bool fill_cell_by_checking_num(byte** grid, int num, bool** table)
 {
     for(int y=0; y<HEIGHT; y++)
     {
@@ -77,11 +78,13 @@ void fill_cell_by_checking_num(byte** grid, int num, bool** table)
             if(*(*(grid+y*WIDTH)+x) == num)
             {
                 *(*(table+y*WIDTH)+x) = true;
-                return;
+                return true;
             }
         }
     }
+    return false;
 }
+
 int check_diagonals(bool** table)
 {
     int result = 0;
@@ -116,6 +119,7 @@ int check_diagonals(bool** table)
     
     return result;
 }
+
 int check_rows(bool** table)
 {
     int result = 0;
@@ -139,6 +143,7 @@ int check_rows(bool** table)
     
     return result;
 }
+
 int check_columns(bool** table)
 {
     int result = 0;
@@ -162,6 +167,7 @@ int check_columns(bool** table)
     
     return result;
 }
+
 bool one_line_filled(bool** table)
 {
     bool result = false;
@@ -187,6 +193,7 @@ bool one_line_filled(bool** table)
     label2:
     return result;
 }
+
 bool all_lines_filled(bool** table)
 {
     bool result = true;
